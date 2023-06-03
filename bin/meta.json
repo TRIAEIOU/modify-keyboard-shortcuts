@@ -1,1 +1,1 @@
-{"disabled": false, "mod": 0, "conflicts": [], "max_point_version": 0, "min_point_version": 0, "branch_index": 0, "update_enabled": true, "config": {"deprecated": {}, "main": {"actionAbout": "Ctrl+Alt+A"}}}
+{"disabled": false, "mod": 0, "conflicts": [], "max_point_version": 0, "min_point_version": 0, "branch_index": 0, "update_enabled": true, "config": {"main window": {"actionAbout": "Ctrl+Alt+A", "actionAdd_ons": ""}}, "human_version": "1.0.0"}
