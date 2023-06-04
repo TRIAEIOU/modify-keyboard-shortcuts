@@ -6,7 +6,7 @@ This addon is inspired by [Liresol](https://github.com/Liresol)'s excellent addo
 
 ## Background
 
-This addon tries to automatically detect any "python side" shortcuts (i.e. not in a WebView/JavaScript-side) and allow overriding. This will include some shortcuts installed by other addons, as long as that addon is loaded before `Override shortcuts`. This approach will automatically detect any new/modified core Anki shortcuts without a need for addon update. Note that the detection logic is not infallible, nor does it always output user friendly values. Example: `"main window": {"shortcut-unnamed-A": "A"}` is in fact the shortcut to open the "Add note" window from the "Main" window, the user needs to figure out what to change.
+This addon tries to automatically detect any "python side" shortcuts (i.e. not in a WebView/JavaScript-side) and allow overriding. This will include some shortcuts installed by other addons, as long as that addon is loaded before `Override shortcuts`. This approach will automatically detect any new/modified core Anki shortcuts without a need for addon update. Note that the detection logic is not infallible, nor does it always output user friendly values. Example: `"aqt.main.AnkiQt": {"shortcut-unnamed-A": "A"}` is in fact the shortcut to open the "Add note" window from the "Main" window, the user needs to figure out what to change.
 
 ## Use
 
@@ -14,11 +14,11 @@ Open all windows once to allow the addon to try to detect shortcuts, then overri
 
 ```json
 {
-  "main window": {    
+  "aqt.main.AnkiQt": {    
     "action-actionAbout": "Ctrl+Alt+A", // comma between items
     "action-actionAdd_ons": "" // empty string will remove the default shortcut
   }, // comma between windows
-  "browser": {
+  "aqt.browser.browser.Browser": {
     "action-action_toggle_bury": ""
   }
 }

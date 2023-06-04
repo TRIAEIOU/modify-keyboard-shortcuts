@@ -1,11 +1,11 @@
 Override found shortcuts by adding a key/value pair (see below for identified shortcuts). To unmap a found shortcut add the key with an empty value (`""`) example:
 
 <pre><code>{
-  "main window": {
+  "aqt.main.AnkiQt": {
     "action-actionAbout": "Ctrl+Alt+A", // comma between items
     "action-actionAdd_ons": "" // empty string will remove the default shortcut
   }, // comma between windows
-  "browser": {
+  "aqt.browser.browser.Browser": {
     "action-action_toggle_bury": ""
   }
 }</code></pre>
@@ -15,7 +15,7 @@ Note that to detect available shortcuts each window has to be opened once. Resta
 # Identified shortcuts
 
 <pre><code>{
-  "main window": {
+  "aqt.main.AnkiQt": {
     "action-actionExit": "Ctrl+Q",
     "action-actionPreferences": "Ctrl+P",
     "action-actionAbout": "",
@@ -48,5 +48,26 @@ Note that to detect available shortcuts each window has to be opened once. Resta
     "shortcut-unnamed-B": "B",
     "shortcut-unnamed-T": "T",
     "shortcut-unnamed-Y": "Y"
-  }
+  },
+  "aqt.browser.browser.Browser": {
+    "action-actionSelectAll": "Ctrl+Alt+A",
+    "action-actionUndo": "Ctrl+Z",
+    "action-actionInvertSelection": "Ctrl+Alt+S",
+    "action-actionFind": "Ctrl+F"
+  },
+  "aqt.addcards.AddCards": {
+    "shortcut-unnamed-Ctrl+N": "Ctrl+N",
+    "shortcut-unnamed-Ctrl+D": "Ctrl+D",
+    "shortcut-unnamed-Ctrl+Alt+M": "Ctrl+Alt+M",
+    "shortcut-unnamed-Ctrl+M": "Ctrl+M",
+    "shortcut-unnamed-Ctrl+Alt+X": "Ctrl+Alt+X",
+    "shortcut-unnamed-Ctrl+PgDown": "Ctrl+PgDown",
+    "shortcut-unnamed-Ctrl+PgUp": "Ctrl+PgUp",
+    "shortcut-unnamed-Ctrl+Enter": "Ctrl+Enter",
+    "shortcut-unnamed-Shift+Esc": "Shift+Esc"
+  },
+  "aqt.studydeck.StudyDeck": {},
+  "aqt.preferences.Preferences": {},
+  "aqt.about.ClosableQDialog": {},
+  "aqt.qt.qt5_compat._instrument_type.<locals>.QtClassProxy": {}
 }</code></pre>
