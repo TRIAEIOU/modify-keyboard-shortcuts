@@ -27,14 +27,16 @@ def override(win, obj):
     """Update default shortcuts for the window, set any configured shortcuts"""
     global _new, _config
 
-    def name(prefix, keys, obj, i):
+    def name(prefix, keys, obj):
         if oname := obj.objectName():
             return f"{prefix}-{oname}"
         elif keys:
             return f"{prefix}-unnamed-{keys}"
         else:
-            i[0] += 1
-            return f"{prefix}-unnamed-[{i[0]}]"
+            if not getattr(name, 'i', None):
+                name.i = {}
+            name.i[prefix] = name.i.get(prefix, 0) + 1
+            return f"{prefix}-unnamed-[{name.i[prefix]}]"
     
     def override_(win, key, sequence):
         if (win_ := _config.get(win)) and (oride := win_.get(key)) != sequence:
@@ -47,28 +49,25 @@ def override(win, obj):
     else:
         store = False
 
-    i = [0]
     for oo in obj.findChildren(aqt.QAction):
         sequence = oo.shortcut().toString()
-        name_ = name('action', sequence, oo, i)
+        name_ = name('action', sequence, oo)
         if store:
             _new[win][name_] = sequence
         if oride := override_(win, name_, sequence):
             oo.setShortcut(oride)
     
-    i = [0]
     for oo in obj.findChildren(aqt.QShortcut):
         sequence = oo.key().toString()
-        name_ = name('shortcut', sequence, oo, i)
+        name_ = name('shortcut', sequence, oo)
         if store:
             _new[win][name_] = sequence
         if oride := override_(win, name_, sequence):
             oo.setKey(oride)
 
-    i = [0]
     for oo in obj.findChildren(aqt.QKeySequence):
         sequence = oo.toString()
-        name_ = name('sequence', sequence, oo, i)
+        name_ = name('sequence', sequence, oo)
         if store:
             _new[win][name_] = sequence
         if oride := override_(win, name_, sequence):
