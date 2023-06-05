@@ -69,8 +69,9 @@ class Finder(aqt.QObject):
                 seq_name = sequence_name('action', sequence, oo)
                 if store:
                     _new[win_name][seq_name] = sequence
-                if oride := override_(win_name, seq_name, sequence):
-                    oo.setKey(oride)
+                if (oride := override_(win_name, seq_name, sequence)) != None:
+                    oo.setShortcut(oride)
+                    #print(f"overriding action {seq_name} with {oride}")
                 #print(f"{sequence_name('action', sequence, oo)}: {sequence}")
             
             # Find all shortcuts, store or override as needed
@@ -79,8 +80,9 @@ class Finder(aqt.QObject):
                 seq_name = sequence_name('shortcut', sequence, oo)
                 if store:
                     _new[win_name][seq_name] = sequence
-                if oride := override_(win_name, seq_name, sequence):
+                if (oride := override_(win_name, seq_name, sequence)) != None:
                     oo.setKey(oride)
+                    #print(f"overriding shortcut {seq_name} with {oride}")
                 #print(f"{sequence_name('shortcut', sequence, oo)}: {sequence}")
         
             if store:
